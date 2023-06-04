@@ -14,5 +14,5 @@ https://discord.gg/tMCM4xp5NF --> join for news
 
 **P.S: Buy bby stealer & pirate stealer, they are the best :)**
 
-by fakie
+by claymore
 

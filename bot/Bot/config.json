@@ -1,0 +1,6 @@
+{
+    "token": "Your Bot Token",
+    "logs": "Logs Webhooks, Keys, etc. (its not dual)",
+    "customerRole": "Customer Role",
+    "prefix": "Prefix of Your BOT"
+}

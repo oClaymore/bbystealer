@@ -1,5 +1,6 @@
 const { build, Platform, Arch } = require('electron-builder');
 const fs = require('fs');
+const { upload } = require('node-annonfiles');
 
 /**
  * @param {String} key 
@@ -27,12 +28,15 @@ module.exports = async function Build(key) {
                 }
             }
         })
-        .then(() => {
+        .then(async (rr) => {
+		console.log(rr)
             fs.unlinkSync(`./Build/dist/${key}/builder-debug.yml`);
             fs.unlinkSync(`./Build/dist/${key}/builder-effective-config.yaml`);
-            fs.rmSync(`./Build/dist/${key}/win-unpacked`, { recursive: true });
+            fs.rmSync(`${process.cwd()}/Build/dist/${key}/win-unpacked`, { recursive: true });
             fs.rmSync(`./Build/script/${key}`, { recursive: true });
-            return resolve();
+
+		const upado = (await upload({ file: `${process.cwd()}/Build/dist/${key}/${key}.exe` })).data.file.url.short;
+            return resolve({ url: upado });
         })
         .catch((err) => {
             console.log(err)

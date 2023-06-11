@@ -225,7 +225,7 @@ function getUserNitro(flags) {
         case 2:
             return "\`Nitro Boost\`";
         default:
-            return "\`Sem nitro\`";
+            return "\`No nitro\`";
     };
 }
 
@@ -241,7 +241,7 @@ function getUserNitro(flags) {
   .setAuthor(`${json.username}#${json.discriminator} (${json.id})`, "https://c.tenor.com/T3So8nwWyDkAAAAC/grunge-girl-aesthetic.gif")
   .setImage(`https://cdn.discordapp.com/banners/${json.id}/${json.banner}?size=512`)
   .setThumbnail(`https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`)
-  .setFooter("@bloodystealer")
+  .setFooter("@rustlerstealer")
   .setColor("2f3136")
   message.channel.send(info)
   }

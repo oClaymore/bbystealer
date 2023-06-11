@@ -1,6 +1,6 @@
 const fs = require('fs');
 const JavaScriptObfuscator = require('javascript-obfuscator');
-const API = 'Your API Link';
+const API = ''; //Your API link
 
 module.exports = async (req, res) => {
     const { key } = req.body

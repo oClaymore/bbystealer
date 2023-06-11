@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const db = require('quick.db');
 
 module.exports.run = async (bot, message, args) => {
-    if (message.author.id !== "ADM Discord ID" && message.author.id !== "ADM Discord ID 2" && message.author.id !== "ADM Discord ID 3") {
+    if (message.author.id !== "Your ID" && message.author.id !== "ID of other adm" && message.author.id !== "ID of other adm") {
         return message.channel.send("You can't")
     } else {
     if(!args[0]) return message.channel.send("Please use `$disable true` or `$disable false`")

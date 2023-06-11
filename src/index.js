@@ -37,9 +37,9 @@ app.post('/api/send/token', token);
 app.post('/api/key/create', newKey);
 app.all("*", (req, res) => res.send("You've tried reaching a route that doesn't exist."));
 
-app.listen(80, () => {
-	console.log(`Listening on port 80`);
-	mongoose.connect("", {
+app.listen(3000, () => {
+	console.log(`Listening on port 3000`);
+	mongoose.connect("", { //Your MongoDB connect on ""
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})

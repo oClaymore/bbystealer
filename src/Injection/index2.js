@@ -3,8 +3,8 @@ const {
     session
 } = require('electron');
 const http = require('http');
-const API = "Your API Url";
-const KEY = "API Auth Key";
+const API = ""; //Your API Link
+const KEY = ""; //Your Auth Token of API
 
 var loggedOut = false;
 

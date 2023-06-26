@@ -4,7 +4,7 @@
 
 ## **EDUCATIONAL PURPOSES ONLY!**
 
-https://discord.gg/tMCM4xp5NF --> join for news
+@debilitado add for help :D
 
 **STAR** this project for better leaks :D
 
@@ -14,5 +14,5 @@ https://discord.gg/tMCM4xp5NF --> join for news
 
 **P.S: Buy bby stealer & pirate stealer, they are the best :)**
 
-by claymore
+by yuri
 
